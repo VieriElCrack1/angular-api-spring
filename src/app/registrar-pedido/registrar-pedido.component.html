@@ -1,0 +1,40 @@
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 border p-4">
+            <h1 class="text-center">Pedido</h1>
+            <form (ngSubmit)="onSumit()">
+                <div class="mb-3">
+                    <label for="idpedido">ID:</label>
+                    <input type="text" class="form-control" name="idpedido" [(ngModel)]="pedidos.idpedido" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="nompedido">Pedido:</label>
+                    <input type="text" class="form-control" name="nompedido" [(ngModel)]="pedidos.nompedido">
+                </div>
+                <div class="mb-3">
+                    <label for="idcategoria">Categoria:</label>
+                    <select name="idcategoria" class="form-select" [(ngModel)]="pedidos.idcategoria">
+                        <option value="0">Seleccione</option>
+                        <option *ngFor="let c of categoria" [value]="c.idcategoria">{{c.nomcategoria}}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="fechaPedido">Fecha:</label>
+                    <input type="date" class="form-control" name="fechaPedido" [(ngModel)]="pedidos.fechaPedido">
+                </div>
+                <div class="mb-3">
+                    <label for="idestado">Estado</label>
+                    <select name="idestado" class="form-select" [(ngModel)]="pedidos.idestado">
+                        <option value="0">Seleccione</option>
+                        <option *ngFor="let e of estado" [value]="e.idestado">{{e.descrip}}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary">Guardar</button>
+                    <button (click)="irAlListadoPedido()" class="btn btn-danger" style="margin-left: 10px;">Retornar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

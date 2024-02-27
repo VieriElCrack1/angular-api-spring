@@ -1,0 +1,26 @@
+<div class="container">
+    <h1 class="text-center">Lista Pedidos</h1>
+    <br>
+    <button (click)="irVistaInsertar()" class="btn btn-primary">Nuevo</button>
+    <table class="table table">
+        <tr>
+            <td>ID</td>
+            <td>Pedido</td>
+            <td>Categoria</td>
+            <td>Fecha</td>
+            <td>Estado</td>
+            <td>Accion</td>
+        </tr>
+        <tr *ngFor="let p of consulta">
+            <td>{{p.idpedido}}</td>
+            <td>{{p.nompedido}}</td>
+            <td>{{p.nomcategoria}}</td>
+            <td>{{p.fechaPedido}}</td>
+            <td>{{p.descrip}}</td>
+            <td>
+                <button (click)="actualizarPedido(p.idpedido)" class="btn btn-warning">Modificar</button>
+                <button (click)="eliminarPedido(p.idpedido)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+</div>
